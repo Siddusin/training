@@ -1,0 +1,122 @@
+-difference between length and length()
+
+
+array.length: length is a final variable applicable for arrays. 
+With the help of the length variable, we can obtain the size of the array. 
+
+string.length() : length() method is a final variable which is 
+applicable for string objects. The length() method returns the 
+number of characters present in the string. 
+
+The length variable is applicable to an array but not for string 
+objects whereas the length() method is applicable for string objects
+ but not for arrays.
+
+-----------------------------------------------------
+
+sorting problems _-------------------------
+
+Descending program
+
+  
+public class SortArrayExample  
+{   
+public static void main(String[] args)   
+{   
+Integer [] array = {23, -9, 78, 102, 4, 0, -1, 11, 6, 110, 205};   
+r   
+Arrays.sort(array, Collections.reverseOrder());   
+System.out.println("Array elements in descending order: " +Arrays.toString(array));   
+}   
+}  
+
+-------------------------------------------------------
+
+public class SortArrayExample2  
+{  
+public static void main(String[] args)   
+{  
+ 
+int[] arr = new int[] {78, 34, 1, 3, 90, 34, -1, -4, 6, 55, 20, -65};  
+System.out.println("Array elements after sorting:");  
+ 
+for (int i = 0; i < arr.length; i++)   
+{  
+for (int j = i + 1; j < arr.length; j++)   
+{  
+int tmp = 0;  
+if (arr[i] > arr[j])   
+{  
+tmp = arr[i];  
+arr[i] = arr[j];  
+arr[j] = tmp;  
+}  
+}  
+ 
+System.out.println(arr[i]);  
+}  
+}  
+}  
+
+---------------------------------------------------------------
+For each loop 
+
+The Java for-each loop or enhanced for loop is introduced since J2SE 5.0. 
+It provides an alternative approach to traverse the array or collection 
+in Java. It is mainly used to traverse the array or collection elements. 
+The advantage of the for-each loop is that it eliminates the possibility  
+of bugs and makes the code more readable. It is known as the for-each loop  
+because it traverses each element one by one. 
+
+The drawback of the enhanced for loop is that it cannot traverse the elements 
+in reverse order. Here, you do not have the option to skip any element  
+because it does not work on an index basis. Moreover, you cannot traverse the 
+odd or even elements only. 
+
+But, it is recommended to use the Java for-each loop for traversing the element  
+s of array and collection because it makes the code readable. 
+
+-------- For each programm                       -----------------------
+
+class ForEachExample1{  
+  public static void main(String args[]){  
+  
+   int arr[]={12,13,14,44};  
+   
+   for(int i:arr){  
+     System.out.println(i);  
+   }  
+ }   
+}  
+
+-------------------------------------------------------------------
+
+Mutlipel Inheritance :
+
+
+Multiple Inheritance” refers to the concept of one class extending (Or inherits) 
+more than one base class. The inheritance we learnt earlier had the concept of 
+one base class or parent. The problem with “multiple inheritance” is that the 
+derived class will have to manage the dependency on two base classes.
+
+Multiple-Inheritance
+
+Note 1: Multiple Inheritance is very rarely used in software projects. 
+Using Multiple inheritance often leads to problems in the hierarchy. 
+This results in unwanted complexity when further extending the class.
+
+Note 2: Most of the new OO languages like Small Talk, Java, C# do not 
+support Multiple inheritance. Multiple Inheritance is supported in C++.
+
+-----------------------------
+
+hybrid inheritance :
+
+In simple terms you can say that Hybrid inheritance is a combination of
+ Single and Multiple inheritance. A typical flow diagram would look like
+below. A hybrid inheritance can be achieved in the java in a same way as
+ multiple inheritance can be!! Using interfaces. yes you heard it right.
+ By using interfaces you can have multiple as well as hybrid inheritance
+ in Java.
+
+------------------------------------------------------------------
