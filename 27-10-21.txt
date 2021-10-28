@@ -1,0 +1,26 @@
+Diff between pull and fetch 
+
+git fetch is the command that tells your local git to retrieve the 
+latest meta-data info from the original (yet doesn’t do any file
+ transferring. It’s more like just checking to see if there are any
+ changes available).
+
+git pull on the other hand does that AND brings (copy) those changes
+ from the remote repository.
+
+
+------------------------------------------------------
+
+diff between git merge and git rebase
+
+Merging is a common practice in Git used to integrate changes from 
+one branch to another. Git merge is a command that commits changes
+to another location. It allows developers to take their independent 
+lines of code created by the Git branch and integrate them into a 
+single branch. This only changes the target branch while the history 
+of the source branch remains. Git rebase is yet another command used 
+basically for the same purpose except it does it quite differently. 
+They both do the same thing – incorporate commits from one branch 
+into another – but the difference lies in how they do it.
+
+-----------------------------------------------------------
