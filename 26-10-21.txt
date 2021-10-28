@@ -1,0 +1,326 @@
+Nested if else program ------
+  
+class ABC
+{  
+    public static void main(String args[])
+    {
+        int a=10;
+          int b=20;
+        
+        if(a==10){
+  
+            if(b!=20){
+                System.out.println("hi");
+            }
+            
+            else{
+                System.out.println("hello");
+            }
+        }
+    }
+}
+
+--------------------------------
+
+patterns 
+---------------------------------
+
+public class Pattern2 {
+
+    public static void main(String[] args) {
+         
+        int n = 5 ;
+
+        for(int i = 0 ; i< n ; i++)  {
+
+            for(int j = 0 ; j<n ; j++) {
+
+                if(i==j)
+                 System.out.print("* ");
+                 else
+                 System.out.print("  ");
+            }
+            System.out.println();
+        }
+    }
+    
+}
+
+---------------------------------
+
+
+    public class Pattern3 {
+
+        public static void main(String[] args) {
+             
+            int n = 5 ;
+    
+            for(int i = 0 ; i< n ; i++)  {
+    
+                for(int j = 0 ; j<n ; j++) {
+    
+                    if(i+j==n-1)
+                     System.out.print("* ");
+                       else
+                     System.out.print("  ");
+                }
+                System.out.println();
+            }
+        }
+        
+    }
+    
+    
+
+----------------------------
+import javax.lang.model.util.ElementScanner14;
+
+public class Pattern4 {
+
+    public static void main(String[] args) {
+             
+        int n = 5 ;
+
+        for(int i = 0 ; i< n ; i++)  {
+
+            for(int j = 0 ; j<n ; j++) {
+                 if (i==0 && (j==0 || j==4 ) || (i==1 ||i==0 )  && j==0 || i==4 && j==4  )
+                 System.out.print("% ");
+               else if(i==(n/2) && j == (n/2))
+                 System.out.print("@ ");
+
+                else if (i==(n/2) || j == (n/2))
+                 System.out.print("* ");
+
+                 else if (i+j==n-1 || i==j)
+                 System.out.print("~ ");
+
+                 else 
+                 System.out.print("# ");
+            }
+            System.out.println();
+        }
+    }
+    
+}
+    
+
+--------------------------
+public class Pattern5 {
+
+    public static void main(String[] args) {
+        
+        int n = 5 ;
+
+        for(int i = 0 ; i< n ; i++)  {
+
+            for(int j = 0 ; j<n ; j++) {
+
+                if (i==0 && j==0 || i==0 && j==n-1 || i==n-1 && j==0 || i==4 && j==n-1)
+                System.out.print("# ");
+                else if(i==(n/2) && j == (n/2))
+                System.out.print("@ ");
+
+               else if (i==(n/2) || j == (n/2))
+                System.out.print("* ");
+
+                else if (i+j==n-1 || i==j)
+                System.out.print("~ ");
+
+                else 
+                System.out.print("o ");
+           }
+           System.out.println();
+    
+    
+}
+    }
+}
+
+-----------------------------------
+
+public class Patterns {
+
+    public static void main(String[] args) {
+        
+        int n = 5 ;
+
+        for(int i = 0 ; i< n ; i++)  {
+
+            for(int j = 0 ; j<n ; j++) {
+
+                if(i==0 || i==(n-1) || j==0 || j==(n-1))
+                 System.out.print("* ");
+                 else
+                 System.out.print("  ");
+            }
+            System.out.println();
+        }
+    }
+    
+}
+------------------------------------
+
+public class Triangle1 {
+
+    public static void main(String[] args) {
+        int n = 5 , x= 1 ;
+
+        for (int i=1; i<=n; i++)
+        {
+            for (int j=1; j<=i; j++)
+            {
+                System.out.print((char) (x++ +64) + " ");
+            }
+            System.out.println();
+        }
+
+        }
+    }
+    
+---------------------------------------------
+public class Triangle2 {
+
+    public static void main(String[] args) {
+        int n = 4;
+
+        for (int i=n ; i>=0 ; i--)
+        {
+            for (int j=0; j<=i; j++){
+                System.out.print("* ");
+            }
+            System.out.println(" ");    
+            }
+    }
+    
+}
+
+---------------------------------------------
+
+public class Triangle3 {
+
+    public static void main(String[] args) {
+        int n=5 ;
+        for (int i=1 ; i<=n ; i++)
+        {
+            for(int j=1; j<=n-i; j++ ){
+            System.out.print(" ");
+            }
+
+            for (int j=1; j<=i; j++){
+                System.out.print("* ");
+            }
+            System.out.println(" ");    
+            }
+    }
+}
+
+-------------------------------------------------------
+
+import java.util.Scanner;
+ 
+public class Triangle4
+{
+  public static void main(String[] args)
+  {
+    int rows, i, j, k;
+    Scanner sc = new Scanner(System.in);
+ 
+    System.out.print("Enter the number of rows: ");
+    rows = sc.nextInt();
+ 
+    System.out.print("Output: \n\n");
+    //upper half
+    for (i = 1; i <= rows; i++)
+    {
+      for (k = 1; k < i; k++)
+        System.out.print(" ");
+ 
+      for (j = i; j <= rows; j++)
+        System.out.print("*");
+ 
+      System.out.println();
+    } 
+        
+}
+}
+
+    --------------------------------------------------------
+
+for loop 
+
+class Main {
+  public static void main(String[] args) {
+
+    int n = 5;
+    
+    for (int i = 1; i <= n; ++i) {
+      System.out.println("Java is fun");
+    }
+  }
+}
+-------------------------------------
+
+while loop 
+
+
+class Main {
+  public static void main(String[] args) {
+
+   
+    int i = 1, n = 5;
+
+   
+    while(i <= n) {
+      System.out.println(i);
+      i++;
+    }
+  }
+}
+--------------------------------------------------
+do while loop 
+
+class Main {
+  public static void main(String[] args) {
+
+    int i = 1, n = 5;
+
+    
+    do {
+      System.out.println(i);
+      i++;
+    } while(i <= n);
+  }
+}
+
+-----------------------------------------------------------
+
+reverse and palindrome Program 
+
+class Abc {
+  
+  
+    static int reversNumber(int n)
+    {
+        int reversed_n = 0;
+        while (n > 0) {
+            reversed_n = reversed_n * 10 + n % 10;
+            n = n / 10;
+        }
+        return reversed_n;
+    }
+  
+    
+    public static void main(String[] args)
+    {
+        int n = 123464321;
+        int reverseN = reversNumber(n);
+        System.out.println("Reverse of n = " + reverseN);
+        
+        if (n == reverseN)
+            System.out.println("Palindrome = Yes");
+        else
+            System.out.println("Palindrome = No");
+    }
+}
+--------------------------------------------------------------
