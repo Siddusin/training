@@ -1,0 +1,25 @@
+The native keyword is applied to a method to indicate that the method is
+ implemented in native code using JNI (Java Native Interface). native is
+ a modifier applicable only for methods and we can’t apply it anywhere else.
+ The methods which are implemented in C, C++ are called native methods or
+ foreign methods.
+
+The main objectives of the native keyword are: 
+
+1. To improve the performance of the system.
+2. To achieve machine level/memory level communication.
+3. To use already existing legacy non-java code.
+
+------------------------------------------------------------------------
+
+
+Despite the compiler optimizes the instructions above for a long time
+I suggest You not to use the firsts in the pairs.
+
+The first pair has a lot of forum talks: which is better in terms of memory.
+But there is an other reason I favour String.Empty: You can much easier
+found all of it with FindAllReferences instead of looking for each “s in
+Your code 🙂
+
+The second pair the two sides in discussions are: readability vs. performance. The left side is much readable, but because of variable content in ancient days it becomes a double memory allocation to build “a”+str and then the tempresult+”b” string. Nowadays the compiler optimizes it to the call on the right side in the pair, which is much better: Concat allocates once the memory which is enough to build the whole result string at once. That is true till four parameters. If You have more params Concat will use StringBuilder class internally which works like Concat: allocates some space at first and uses it to build the string. The difference is: Concat knows how much space required for the result from it’s params, but StringBuilder dont. So it allocates a buffer and if that is exhausted it allocates a new bigger one, etc. If you check the IEnumerable<string> overload of Concat You will see that althought it knows from its parameters it dont calculates the required buffer size for StringBuilder constructor to allocate approriate buffer at once. So if You have more than four strings to
+ concat You may write better code than using the builtin feature of Concat 
