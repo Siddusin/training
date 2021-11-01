@@ -1,0 +1,18 @@
+The somewhat confusing or misunderstood Object method getClass() returns an instance of the Class class, 
+which contains information about the class that getClass() was called from. Whew, if you're not confused already by that 
+last statement good for you, because I am and I wrote it!
+Let me try to unpack that sentence with a demonstration of how this might be used. 
+Below you will find the Person class I used in the initial article on the Object class's toString() method
+At this point you may be asking yourself, "Ok I guess it is pretty cool that I can get information about a class by calling getClass() 
+and retrieving its Class object representation, 
+but how is this useful to me as a programmer?". Believe me, I've asked myself this question as well and my general conclusion has been... 
+it's not. At least it is not really from an everyday programmer's perspective. However, if you happen to be a library or framework developer 
+then you are likely to get very familiar with the information and behavior of Class objects because it is essential for the concept known as 
+reflection.
+
+Reflection allows for two primary things: 
+(i) runtime investigation of objects and their contents and, 
+(ii) dynamic access to fields and execution of methods during runtime.
+
+Item number one was already demonstrated above by using getClass() to get a runtime representation of the Person class to access either 
+the fully qualified or simple class name in a modified version of the toString() method.
