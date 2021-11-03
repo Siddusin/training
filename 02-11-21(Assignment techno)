@@ -1,0 +1,26 @@
+assignment
+25/10/21(megha mam)
+ native
+ strictfp(1.2 version)
+  
+ volatile
+ assert
+ instanceof
+ enum
+ jit
+ operator program   
+ (a=5,b=2,c=1)
+ a)m=++a*5;
+ b)b++-c*2;
+ (x=10,y=2,p=21)
+ p*=x/y;9
+26/10/21
+patter making program 
+
+27/10/21
+ Explore git pull in CLI
+Differentiate between pull and fetch
+Note the difference between merge and rebase
+Add all the files related to Java that you have worked on so far to github, by creating a 
+new repository
+Going forward, use only git to maintain training related source code...
