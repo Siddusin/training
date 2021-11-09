@@ -1,0 +1,8 @@
+LinkedHashSet()
+Constructs a new, empty linked hash set with the default initial capacity (16) and load factor (0.75).
+LinkedHashSet(Collection<? extends E> c)
+Constructs a new linked hash set with the same elements as the specified collection.
+LinkedHashSet(int initialCapacity)
+Constructs a new, empty linked hash set with the specified initial capacity and the default load factor (0.75).
+LinkedHashSet(int initialCapacity, float loadFactor)
+Constructs a new, empty linked hash set with the specified initial capacity and load factor.
