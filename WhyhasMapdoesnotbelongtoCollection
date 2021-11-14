@@ -1,0 +1,2 @@
+A Map cannot contain duplicate keys; each key can map to at most one value. If you've used Hashtable, you're already familiar with the basics 
+of Map.Also see The Map Interface section. So Map is a Collection although it doesn't really have to implement the Collection interface.
