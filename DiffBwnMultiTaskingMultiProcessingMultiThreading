@@ -1,0 +1,35 @@
+Multiprocessing – A computer using more than one CPU at a time.
+Multitasking – Tasks sharing a common resource (like 1 CPU).
+Multithreading is an extension of multitasking.
+
+
+MultiTasking
+1.	The execution of more than one task simultaneously is known as multitasking.
+2.	The number of CPU is one.
+3.	It takes moderate amount of time.
+4.	In this, one by one job is being executed at a time
+5.	It is economical.
+6.	The number of users is more than one.
+7.	Throughput is moderate.
+8.	Its efficiency is moderate.
+9.	It is of two types: Single user multitasking and Multiple user multitasking.
+10.	Number of user tasks is more than one.
+
+Multiprocessing
+1.The availability of more than one processor per system, that can execute several set of instructions in 
+  parallel is known as multiprocessing.
+2.The number of CPUs is more than one.
+3.It takes less time for job processing.
+4.In this, more than one process can be executed at a time.
+5.It is economical.
+6.The number of users is can be one or more than one.
+7.Throughput is maximum.
+8.Its efficiency is maximum.
+9.It is of two types: Symmetric Multiprocessing and Asymmetric Multiprocessing. 
+10.Number of user tasks can be one or more than one.
+
+MultiThreading
+1.A thread is a basic unit of CPU utilization. 
+2. Multi threading is an execution model that allows a single process to have multiple code segments
+3.Multi threading is the ability of a process to manage its use by more than one user at a time and to manage
+  multiple requests by the same user without having to have multiple copies of the program.
