@@ -1,0 +1,198 @@
+mysql> create database hardware;
+mysql> use Hardware;
+Database changed
+mysql> create table electronic_items(
+    -> product_id int(4) primary key,
+    -> product_name varchar(45) not null,
+    -> cost int(6) not null,
+    -> date_of_manufacture date ,
+    -> warranty varchar(20) not null);
+Query OK, 0 rows affected (0.35 sec)
+
+mysql> insert into electronic_items(322,'Motor',1200,'2021-10-01','2Years');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '322,'Motor',1200,'2021-10-01','2Years')' at line 1
+mysql> insert into electronic_items values(322,'Motor',1200,'2021-10-01','2Years');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into electronic_items values(234,'Motherboard',15000,'2021-11-11','4Years');
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into electronic_items values(298,'CPU',5400,'2020-01-01','1Years');
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into electronic_items values(232,'Hard_Disk',2000,'2019-01-01','5Years');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into electronic_items values(237,'Monitor',12999,'2018-12-01','4Years');
+Query OK, 1 row affected (0.12 sec)
+
+mysql> insert into electronic_items values(243,'Mouse',599,'2021-11-01','4Years');
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into electronic_items values(122,'RAM',5000,'2020-11-21','2Years');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into electronic_items values(122,'GraphicsCard',40000,'2020-10-01','6Years');
+ERROR 1062 (23000): Duplicate entry '122' for key 'PRIMARY'
+mysql> insert into electronic_items values(121,'GraphicsCard',40000,'2020-10-01','6Years');
+Query OK, 1 row affected (0.12 sec)
+
+mysql> insert into electronic_items values(129,'Keyboard',4000,'2021-11-21','3Years');
+Query OK, 1 row affected (0.11 sec)
+
+mysql> select * from electronic_items;
++------------+--------------+-------+---------------------+----------+
+| product_id | product_name | cost  | date_of_manufacture | warranty |
++------------+--------------+-------+---------------------+----------+
+|        121 | GraphicsCard | 40000 | 2020-10-01          | 6Years   |
+|        122 | RAM          |  5000 | 2020-11-21          | 2Years   |
+|        129 | Keyboard     |  4000 | 2021-11-21          | 3Years   |
+|        232 | Hard_Disk    |  2000 | 2019-01-01          | 5Years   |
+|        234 | Motherboard  | 15000 | 2021-11-11          | 4Years   |
+|        237 | Monitor      | 12999 | 2018-12-01          | 4Years   |
+|        243 | Mouse        |   599 | 2021-11-01          | 4Years   |
+|        298 | CPU          |  5400 | 2020-01-01          | 1Years   |
+|        322 | Motor        |  1200 | 2021-10-01          | 2Years   |
++------------+--------------+-------+---------------------+----------+
+9 rows in set (0.00 sec)
+
+mysql> select * from electronic_items where cost > 20000;
++------------+--------------+-------+---------------------+----------+
+| product_id | product_name | cost  | date_of_manufacture | warranty |
++------------+--------------+-------+---------------------+----------+
+|        121 | GraphicsCard | 40000 | 2020-10-01          | 6Years   |
++------------+--------------+-------+---------------------+----------+
+1 row in set (0.00 sec)
+
+mysql> select * from electronic_iteams where product_name in (RAM,Mouse,CPU);
+ERROR 1146 (42S02): Table 'hardware.electronic_iteams' doesn't exist
+mysql> select * from electronic_iteams where product_name in (RAM,Mouse);
+ERROR 1146 (42S02): Table 'hardware.electronic_iteams' doesn't exist
+mysql> select * from electronic_items where product_name in (RAM,Mouse);
+ERROR 1054 (42S22): Unknown column 'RAM' in 'where clause'
+mysql> select * from electronic_items where product_name in ('RAM','Mouse');
++------------+--------------+------+---------------------+----------+
+| product_id | product_name | cost | date_of_manufacture | warranty |
++------------+--------------+------+---------------------+----------+
+|        122 | RAM          | 5000 | 2020-11-21          | 2Years   |
+|        243 | Mouse        |  599 | 2021-11-01          | 4Years   |
++------------+--------------+------+---------------------+----------+
+2 rows in set (0.00 sec)
+
+mysql> rename table electronic_items to elctronics;
+Query OK, 0 rows affected (0.31 sec)
+
+mysql> Select * from elctronics;
++------------+--------------+-------+---------------------+----------+
+| product_id | product_name | cost  | date_of_manufacture | warranty |
++------------+--------------+-------+---------------------+----------+
+|        121 | GraphicsCard | 40000 | 2020-10-01          | 6Years   |
+|        122 | RAM          |  5000 | 2020-11-21          | 2Years   |
+|        129 | Keyboard     |  4000 | 2021-11-21          | 3Years   |
+|        232 | Hard_Disk    |  2000 | 2019-01-01          | 5Years   |
+|        234 | Motherboard  | 15000 | 2021-11-11          | 4Years   |
+|        237 | Monitor      | 12999 | 2018-12-01          | 4Years   |
+|        243 | Mouse        |   599 | 2021-11-01          | 4Years   |
+|        298 | CPU          |  5400 | 2020-01-01          | 1Years   |
+|        322 | Motor        |  1200 | 2021-10-01          | 2Years   |
++------------+--------------+-------+---------------------+----------+
+9 rows in set (0.01 sec)
+
+mysql> alter table electronics
+    -> add column GST varchar(20) not null;
+ERROR 1146 (42S02): Table 'hardware.electronics' doesn't exist
+mysql> alter table elctronics
+    -> add column GST varchar(20) not null;
+Query OK, 0 rows affected (0.72 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> selecgt * from elctronics;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selecgt * from elctronics' at line 1
+mysql> select * from elctronics;
++------------+--------------+-------+---------------------+----------+-----+
+| product_id | product_name | cost  | date_of_manufacture | warranty | GST |
++------------+--------------+-------+---------------------+----------+-----+
+|        121 | GraphicsCard | 40000 | 2020-10-01          | 6Years   |     |
+|        122 | RAM          |  5000 | 2020-11-21          | 2Years   |     |
+|        129 | Keyboard     |  4000 | 2021-11-21          | 3Years   |     |
+|        232 | Hard_Disk    |  2000 | 2019-01-01          | 5Years   |     |
+|        234 | Motherboard  | 15000 | 2021-11-11          | 4Years   |     |
+|        237 | Monitor      | 12999 | 2018-12-01          | 4Years   |     |
+|        243 | Mouse        |   599 | 2021-11-01          | 4Years   |     |
+|        298 | CPU          |  5400 | 2020-01-01          | 1Years   |     |
+|        322 | Motor        |  1200 | 2021-10-01          | 2Years   |     |
++------------+--------------+-------+---------------------+----------+-----+
+9 rows in set (0.00 sec)
+
+mysql> rename table elctronics to electronics_items;
+Query OK, 0 rows affected (0.20 sec)
+
+mysql> update column set GST='10%';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'column set GST='10%'' at line 1
+mysql> update electronics_items set GST='10%';
+Query OK, 9 rows affected (0.09 sec)
+Rows matched: 9  Changed: 9  Warnings: 0
+
+mysql> select * from electronics_items;
++------------+--------------+-------+---------------------+----------+-----+
+| product_id | product_name | cost  | date_of_manufacture | warranty | GST |
++------------+--------------+-------+---------------------+----------+-----+
+|        121 | GraphicsCard | 40000 | 2020-10-01          | 6Years   | 10% |
+|        122 | RAM          |  5000 | 2020-11-21          | 2Years   | 10% |
+|        129 | Keyboard     |  4000 | 2021-11-21          | 3Years   | 10% |
+|        232 | Hard_Disk    |  2000 | 2019-01-01          | 5Years   | 10% |
+|        234 | Motherboard  | 15000 | 2021-11-11          | 4Years   | 10% |
+|        237 | Monitor      | 12999 | 2018-12-01          | 4Years   | 10% |
+|        243 | Mouse        |   599 | 2021-11-01          | 4Years   | 10% |
+|        298 | CPU          |  5400 | 2020-01-01          | 1Years   | 10% |
+|        322 | Motor        |  1200 | 2021-10-01          | 2Years   | 10% |
++------------+--------------+-------+---------------------+----------+-----+
+9 rows in set (0.06 sec)
+
+mysql> select * from electronics_items;
++------------+--------------+-------+---------------------+----------+-----+
+| product_id | product_name | cost  | date_of_manufacture | warranty | GST |
++------------+--------------+-------+---------------------+----------+-----+
+|        121 | GraphicsCard | 40000 | 2020-10-01          | 6Years   | 10% |
+|        122 | RAM          |  5000 | 2020-11-21          | 2Years   | 10% |
+|        129 | Keyboard     |  4000 | 2021-11-21          | 3Years   | 10% |
+|        232 | Hard_Disk    |  2000 | 2019-01-01          | 5Years   | 10% |
+|        234 | Motherboard  | 15000 | 2021-11-11          | 4Years   | 10% |
+|        237 | Monitor      | 12999 | 2018-12-01          | 4Years   | 10% |
+|        243 | Mouse        |   599 | 2021-11-01          | 4Years   | 10% |
+|        298 | CPU          |  5400 | 2020-01-01          | 1Years   | 10% |
+|        322 | Motor        |  1200 | 2021-10-01          | 2Years   | 10% |
++------------+--------------+-------+---------------------+----------+-----+
+9 rows in set (0.00 sec)
+
+mysql> select * from electronics_items order by cost;
++------------+--------------+-------+---------------------+----------+-----+
+| product_id | product_name | cost  | date_of_manufacture | warranty | GST |
++------------+--------------+-------+---------------------+----------+-----+
+|        243 | Mouse        |   599 | 2021-11-01          | 4Years   | 10% |
+|        322 | Motor        |  1200 | 2021-10-01          | 2Years   | 10% |
+|        232 | Hard_Disk    |  2000 | 2019-01-01          | 5Years   | 10% |
+|        129 | Keyboard     |  4000 | 2021-11-21          | 3Years   | 10% |
+|        122 | RAM          |  5000 | 2020-11-21          | 2Years   | 10% |
+|        298 | CPU          |  5400 | 2020-01-01          | 1Years   | 10% |
+|        237 | Monitor      | 12999 | 2018-12-01          | 4Years   | 10% |
+|        234 | Motherboard  | 15000 | 2021-11-11          | 4Years   | 10% |
+|        121 | GraphicsCard | 40000 | 2020-10-01          | 6Years   | 10% |
++------------+--------------+-------+---------------------+----------+-----+
+9 rows in set (0.00 sec)
+
+mysql> select * from electronics_items order by cost desc ;
++------------+--------------+-------+---------------------+----------+-----+
+| product_id | product_name | cost  | date_of_manufacture | warranty | GST |
++------------+--------------+-------+---------------------+----------+-----+
+|        121 | GraphicsCard | 40000 | 2020-10-01          | 6Years   | 10% |
+|        234 | Motherboard  | 15000 | 2021-11-11          | 4Years   | 10% |
+|        237 | Monitor      | 12999 | 2018-12-01          | 4Years   | 10% |
+|        298 | CPU          |  5400 | 2020-01-01          | 1Years   | 10% |
+|        122 | RAM          |  5000 | 2020-11-21          | 2Years   | 10% |
+|        129 | Keyboard     |  4000 | 2021-11-21          | 3Years   | 10% |
+|        232 | Hard_Disk    |  2000 | 2019-01-01          | 5Years   | 10% |
+|        322 | Motor        |  1200 | 2021-10-01          | 2Years   | 10% |
+|        243 | Mouse        |   599 | 2021-11-01          | 4Years   | 10% |
++------------+--------------+-------+---------------------+----------+-----+
+9 rows in set (0.00 sec)

@@ -1,0 +1,34 @@
+The non-relational database, or NoSQL database, stores data. However, unlike the relational database, there are 
+no tables, rows, primary keys or foreign keys.  Instead, the non-relational database uses a storage model 
+optimized for specific requirements of the type of data being stored.
+
+Some of the more popular NoSQL databases are MongoDB, Apache Cassandra, Redis, Couchbase and Apache HBase.
+
+There are four popular non-relational types: document data store, column-oriented database, key-value store and 
+graph database.  Often combinations of these types are used for a single application.
+
+Document data stores
+A document data store manages a set of named string fields and object data values in an entity referred to as a “
+document” typically stored in the form of JSON documents, which can be encoded in a variety of ways, including 
+XML, YAML, JSON, BSON or as plain text. The fields within documents are exposed, allowing an application to query
+and filter data using field values.
+
+The document stores do not require all documents to maintain identical data structures, which provides a great 
+deal of flexibility.  It’s easy to see then how this flexibility can be leveraged as an organization’s 
+requirements change.
+
+Columnar (or column oriented) data stores
+A columnar data store organizes data into columns, which is conceptually similar to the relational database. The 
+true advantage of a column-family database is in its denormalized approach to structuring sparse data, which 
+comes from its column-oriented approach to storing data.
+
+==================================================================================================================
+relational database;
+A relational database, also called Relational Database Management System (RDBMS) or SQL database, stores data in 
+tables and rows also referred to as records. The term “relational database” was first used in 1970 by E.F. Codd 
+at IBM in his research paper “A Relational Model of Data for Large Shared Data Banks.” Historically, the most 
+popular relational databases have been Microsoft SQL Server, Oracle Database, MySQL and IBM DB2. Several free 
+versions of these RDBMS platforms have gained popularity over the years, such as SQL Server Express, PostgreSQL,
+ SQLite, MySQL and MariaDB.
+
+A relational database works by linking information from multiple tables through the use of “keys.” A key is a unique identifier which can be assigned to a row of data contained within a table. This unique identifier, called a “primary key,” can then be included in a record located in another table when that record has a relationship to the primary record in the main table. When this unique primary key is added to a record in another table, it is called a “foreign key” in the associated table. The connection between the primary and foreign key then creates the “relationship” between records contained across multiple tables.
