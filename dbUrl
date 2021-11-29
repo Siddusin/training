@@ -1,0 +1,4 @@
+1.jdbc:oracle:thin:@localhost:1521:xe
+2.jdbc:postgresql:// host : port / database.
+3.jdbc:db2://sysmvs1.stl.ibm.com:5021/STLEC1
+4.jdbc:hive2://<server>:<port>/<database name>

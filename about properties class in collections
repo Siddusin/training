@@ -1,0 +1,45 @@
+Properties is a subclass of Hashtable. It is used to maintain lists of values in which the key is a String and 
+the value is also a String.
+The Properties class is used by many other Java classes. For example, it is the type of object returned by System.
+getProperties( ) when obtaining environmental values.
+Properties define the following instance variable. This variable holds a default property list associated with a 
+Properties object.
+
+String getProperty(String key)
+
+Returns the value associated with the key. A null object is returned if the key is neither in the list nor in the default property list.
+
+2	
+String getProperty(String key, String defaultProperty)
+
+Returns the value associated with the key; defaultProperty is returned if the key is neither in the list nor in the default property list.
+
+3	
+void list(PrintStream streamOut)
+
+Sends the property list to the output stream linked to streamOut.
+
+4	
+void list(PrintWriter streamOut)
+
+Sends the property list to the output stream linked to streamOut.
+
+5	
+void load(InputStream streamIn) throws IOException
+
+Inputs a property list from the input stream linked to streamIn.
+
+6	
+Enumeration propertyNames( )
+
+Returns an enumeration of the keys. This includes those keys found in the default property list, too.
+
+7	
+Object setProperty(String key, String value)
+
+Associates value with the key. Returns the previous value associated with the key, or returns null if no such association exists.
+
+8	
+void store(OutputStream streamOut, String description)
+
+After writing the string specified by description, the property list is written to the output stream linked to streamOut.

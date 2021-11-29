@@ -1,0 +1,28 @@
+Functions are a very powerful feature of SQL and can be used to do the following:
+• Perform calculations on data
+• Modify individual data items
+• Manipulate output for groups of rows
+• Format dates and numbers for display
+• Convert column datatypes
+SQL functions may accept arguments and always return a value
+
+Single-Row Functions
+These functions operate on single rows only and return one result per row. There are different types of singlerow functions. This lesson covers the following ones:
+• Character
+• Number
+• Date
+• Conversion
+
+Single-Row Functions
+Single-row functions are used to manipulate data items. They accept one or more arguments and return one
+value for each row returned by the query. An argument can be one of the following:
+• User-supplied constant
+• Variable value
+• Column name
+• Expression
+Features of single-row functions:
+• Act on each row returned in the query
+• Return one result per row
+• May return a data value of a different type than that referenced
+• May expect one or more arguments
+• Can be used in SELECT, WHERE, and ORDER BY clauses; can be nested
