@@ -1,0 +1,529 @@
+ USE ASSIGNMENTS;
+Database changed
+mysql> SELECT * FROM EMPLOYEES;
++--------+------------+------------+-----------------------------+--------+-------+--------+
+| empid  | first_name | last_name  | job                         | salary | mgr   | deptno |
++--------+------------+------------+-----------------------------+--------+-------+--------+
+|  33391 | D'arcy     | Nortunen   | Account Executive           |  62871 | 37270 |      1 |
+|  37270 | Yovonnda   | Magrannell | Executive Secretary         |  63996 |  NULL |     10 |
+|  37851 | Sayer      | Matterson  | Statistician III            |  98926 | 37270 |      1 |
+|  40448 | Mindy      | Crissil    | Staff Scientist             |  94860 | 37270 |      1 |
+|  56274 | Keriann    | Alloisi    | VP Marketing                | 110150 | 37270 |      1 |
+|  63196 | Alaster    | Scutchin   | Assistant Professor         |  32179 | 37270 |      2 |
+|  67009 | North      | de Clerc   | VP Product Management       | 114257 | 37270 |      2 |
+|  67370 | Elladine   | Rising     | Social Worker               |  96767 | 37270 |      2 |
+|  68249 | Nisse      | Voysey     | Financial Advisor           |  52832 | 37270 |      2 |
+|  72540 | Guthrey    | Iacopetti  | Office Assistant I          | 117690 | 37270 |      3 |
+|  72913 | Kass       | Hefferan   | Computer Systems Analyst IV |  96401 | 37270 |      3 |
+|  75900 | Virge      | Goodrum    | Information Systems Manager |  54578 | 37270 |      3 |
+|  76196 | Mirilla    | Janowski   | Cost Accountant             | 119241 | 37270 |      3 |
+|  80529 | Lynde      | Aronson    | Junior Executive            |  77182 | 37270 |      4 |
+|  80679 | Mildrid    | Sokale     | Geologist II                |  67987 | 37270 |      4 |
+|  84791 | Hazel      | Tarbert    | General Manager             |  93760 | 37270 |      4 |
+|  95213 | Cole       | Kesterton  | Pharmacist                  |  86119 | 37270 |      4 |
+|  96513 | Theresa    | Binney     | Food Chemist                |  47354 | 37270 |      5 |
+|  98374 | Estrellita | Daleman    | Staff Accountant IV         |  70187 | 37270 |      5 |
+| 115357 | Ivy        | Fearey     | Structural Engineer         |  92710 | 37270 |      5 |
++--------+------------+------------+-----------------------------+--------+-------+--------+
+20 rows in set (0.00 sec)
+
+mysql> alter table employees
+    -> ;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> UPDATE EMPLOYEES
+    -> SET HIREDATE='2020-12-12';
+Query OK, 20 rows affected (0.18 sec)
+Rows matched: 20  Changed: 20  Warnings: 0
+
+mysql> UPDATE EMPLOYEES
+    -> SET HIREDATE='2020-09-21'
+    -> WHERE DEPTNO =5;
+Query OK, 3 rows affected (0.35 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> UPDATE EMPLOYEES
+    -> SET HIREDATE='2020-06-18'
+    -> WHERE DEPTNO =4;
+Query OK, 4 rows affected (0.06 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+mysql> UPDATE EMPLOYEES
+    -> SET HIREDATE='2018-12-14'
+    -> WHERE DEPTNO =3;
+Query OK, 4 rows affected (0.06 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+mysql> UPDATE EMPLOYEES
+    -> SET HIREDATE='2019-01-30'
+    -> WHERE DEPTNO =2;
+Query OK, 4 rows affected (0.32 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+mysql> UPDATE EMPLOYEES
+    -> SET HIREDATE='2015-05-05'
+    -> WHERE DEPTNO =1;
+Query OK, 4 rows affected (0.03 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+mysql> SELECT SUM(SALARY) FROM EMPLOYEES;
++-------------+
+| SUM(SALARY) |
++-------------+
+|     1650047 |
++-------------+
+1 row in set (0.13 sec)
+
+mysql> SELECT HIREDATE FROM EMPLOYEES;
++------------+
+| HIREDATE   |
++------------+
+| 2015-05-05 |
+| 2020-12-12 |
+| 2015-05-05 |
+| 2015-05-05 |
+| 2015-05-05 |
+| 2019-01-30 |
+| 2019-01-30 |
+| 2019-01-30 |
+| 2019-01-30 |
+| 2018-12-14 |
+| 2018-12-14 |
+| 2018-12-14 |
+| 2018-12-14 |
+| 2020-06-18 |
+| 2020-06-18 |
+| 2020-06-18 |
+| 2020-06-18 |
+| 2020-09-21 |
+| 2020-09-21 |
+| 2020-09-21 |
++------------+
+20 rows in set (0.00 sec)
+
+mysql> SELECT HIREDATE FROM EMPLOYEES
+    -> GROUP BY HIREDATE
+    -> HAVING COUNT(*)>=3;
++------------+
+| HIREDATE   |
++------------+
+| 2015-05-05 |
+| 2018-12-14 |
+| 2019-01-30 |
+| 2020-06-18 |
+| 2020-09-21 |
++------------+
+5 rows in set (0.05 sec)
+
+mysql> SELECT DEPTNO FROM EMPLOYEES
+    -> GROUP BY DEPTNO HAVING COUNT(*)>=2 AND SUM(SAL)>9000;
+ERROR 1054 (42S22): Unknown column 'SAL' in 'having clause'
+mysql> SELECT DEPTNO FROM EMPLOYEES
+    -> GROUP BY DEPTNO HAVING COUNT(*)>=2 AND SUM(SALARY)>9000;
++--------+
+| DEPTNO |
++--------+
+|      1 |
+|      2 |
+|      3 |
+|      4 |
+|      5 |
++--------+
+5 rows in set (0.02 sec)
+
+mysql> SELECT COUNT(*) FROM EMPLOYEES
+    -> WHERE SALARY<1000 GROUP BY(DEPTNO) AND AVG(SALARY)
+    -> ;
+ERROR 1111 (HY000): Invalid use of group function
+mysql> SELECT COUNT(*) FROM EMPLOYEES
+    -> WHERE SALARY<1000 GROUP BY DEPTNO AND AVG(SALARY)
+    -> ;
+ERROR 1111 (HY000): Invalid use of group function
+mysql> SELECT COUNT(*) FROM EMPLOYEES
+    -> WHERE SALARY<1000 GROUP BY DEPTNO HAVING; AVG(SALARY)
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 2
+    -> SELECT COUNT(*),AVG(SALARY) FROM EMPLOYEES
+    -> WHERE SALARY<1000 GROUP BY DEPTNO ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AVG(SALARY)
+SELECT COUNT(*),AVG(SALARY) FROM EMPLOYEES
+WHERE SALARY<1000 GROUP B' at line 1
+mysql> SELECT COUNT(*) FROM EMPLOYEES
+    -> GROUP BY DEPTNO HAVING AVG(SALARY); ;
++----------+
+| COUNT(*) |
++----------+
+|        4 |
+|        4 |
+|        4 |
+|        4 |
+|        3 |
+|        1 |
++----------+
+6 rows in set (0.02 sec)
+
+ERROR:
+No query specified
+
+mysql> SELECT COUNT(*),AVG(SALARY) FROM EMPLOYEES
+    -> WHERE SALARY<1000 GROUP BY DEPTNO ;
+Empty set (0.00 sec)
+
+mysql> SELECT SALARY FROM EMPLOYEES
+    -> GROUP BY SALARY
+    -> HAVING COUNT(*)>=2;
+Empty set (0.00 sec)
+
+mysql> SELECT FIRST_NAME FROM EMPLOYEES
+    -> GROUP BY fIRST_NAME
+    -> HAVING COUNT(*)=2;
+Empty set (0.00 sec)
+
+mysql>
+mysql> SELECT DEPTNO FROM EMPLOYEES GROUP BY SALARY HAVING AVG(SALARY) BETWEEN 2500 AND 3000;
+Empty set (0.01 sec)
+
+mysql> SELECT COUNT(*) FROM EMPLOYEES WHERE JOB IN('MANAGER','ANALYST') AND SAL*12 LIKE '%0' GROUP BY DEPTNO;
+ERROR 1054 (42S22): Unknown column 'SAL' in 'where clause'
+mysql> SELECT COUNT(*) FROM EMPLOYEES WHERE JOB IN('MANAGER','ANALYST') AND SALARY*12 LIKE '%0' GROUP BY DEPTNO;
+Empty set (0.00 sec)
+
+mysql> SELECT COUNT(*) FROM EMPLOYEES WHERE JOB ='CLERK' GROUP BY DEPTNO;
+Empty set (0.00 sec)
+
+mysql> SELECT MAX(SALARY) FROM EMPLOYEES WHERE JOB ='MANAGER' GROUP BY DEPTNO;
+Empty set (0.03 sec)
+
+mysql> SELECT COUNT(*) FROM EMPLOYEES GROUP BY SALARY;
++----------+
+| COUNT(*) |
++----------+
+|        1 |
+|        1 |
+|        1 |
+|        1 |
+|        1 |
+|        1 |
+|        1 |
+|        1 |
+|        1 |
+|        1 |
+|        1 |
+|        1 |
+|        1 |
+|        1 |
+|        1 |
+|        1 |
+|        1 |
+|        1 |
+|        1 |
+|        1 |
++----------+
+20 rows in set (0.00 sec)
+
+mysql> SELECT DEPTNO,COUNT(*) FROM EMPLOYEES WHERE DEPTNO NOT IN 10 GROUP BY DEPTNO;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '10 GROUP BY DEPTNO' at line 1
+mysql> SELECT DEPTNO,COUNT(*) FROM EMPLOYEES WHERE DEPTNO !=10 GROUP BY DEPTNO;
++--------+----------+
+| DEPTNO | COUNT(*) |
++--------+----------+
+|      1 |        4 |
+|      2 |        4 |
+|      3 |        4 |
+|      4 |        4 |
+|      5 |        3 |
++--------+----------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT COUNT(*) FROM EMPLOYEES GROUP BY DEPTNO;
++----------+
+| COUNT(*) |
++----------+
+|        4 |
+|        4 |
+|        4 |
+|        4 |
+|        3 |
+|        1 |
++----------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT COUNT(*) FROM EMPLOYEES WHERE SALARY>1600 AND JOB!='MANAGER' GROUP BY DEPTNO;
++----------+
+| COUNT(*) |
++----------+
+|        4 |
+|        4 |
+|        4 |
+|        4 |
+|        3 |
+|        1 |
++----------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT AVG(SALARY) FROM EMPLOYEES WHERE MGR IS NOT NULL GROUP BY JOB;
++-------------+
+| AVG(SALARY) |
++-------------+
+|  62871.0000 |
+|  32179.0000 |
+|  96401.0000 |
+| 119241.0000 |
+|  52832.0000 |
+|  47354.0000 |
+|  93760.0000 |
+|  67987.0000 |
+|  54578.0000 |
+|  77182.0000 |
+| 117690.0000 |
+|  86119.0000 |
+|  96767.0000 |
+|  70187.0000 |
+|  94860.0000 |
+|  98926.0000 |
+|  92710.0000 |
+| 110150.0000 |
+| 114257.0000 |
++-------------+
+19 rows in set (0.00 sec)
+
+mysql> SELECT COUNT(*) FROM EMPLOYEES GROUP BY DEPTNO HAVING COUNT(HIREDATE)=1;
++----------+
+| COUNT(*) |
++----------+
+|        1 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT COUNT(*) FROM EMPLOYEES GROUP BY DEPTNO HAVING COUNT(HIREDATE)>=2;
++----------+
+| COUNT(*) |
++----------+
+|        4 |
+|        4 |
+|        4 |
+|        4 |
+|        3 |
++----------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT COUNT(*) FROM EMPLOYEES GROUP BY DEPTNO HAVING COUNT(SALARY)>=2;
++----------+
+| COUNT(*) |
++----------+
+|        4 |
+|        4 |
+|        4 |
+|        4 |
+|        3 |
++----------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT MAX(SALARY) FROM EMPLOYEES WHERE FIRST_NAME NOT LIKE 'K%' GROUP BY JOB ;
++-------------+
+| MAX(SALARY) |
++-------------+
+|       62871 |
+|       32179 |
+|      119241 |
+|       63996 |
+|       52832 |
+|       47354 |
+|       93760 |
+|       67987 |
+|       54578 |
+|       77182 |
+|      117690 |
+|       86119 |
+|       96767 |
+|       70187 |
+|       94860 |
+|       98926 |
+|       92710 |
+|      114257 |
++-------------+
+18 rows in set (0.19 sec)
+
+mysql> SELECT COUNT(*) FROM EMPLOYEES WHERE MGR =7869 GROUP BY DEPTNO;
+Empty set (0.00 sec)
+
+mysql> SELECT COUNT(*) FROM EMPLOYEES WHERE FIRSTNAME LIKE 'A%' OR  FIRSTNAME LIKE 'A%' OR  GROUP BY DEPTNO; GROUP BY DEPTNO;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GROUP BY DEPTNO' at line 1
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GROUP BY DEPTNO' at line 1
+mysql> SELECT COUNT(*) FROM EMPLOYEES WHERE FIRSTNAME LIKE IN ('A%','E%')  GROUP BY DEPTNO;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IN ('A%','E%')  GROUP BY DEPTNO' at line 1
+mysql> SELECT COUNT(*) FROM EMPLOYEES WHERE FIRSTNAME LIKE 'A%' OR FIRSTNAME LIKE 'E%' ORFIRSTNAME LIKE 'I%' ORFIRSTNAME LIKE 'O%' ORFIRSTNAME LIKE 'U%' GROUP BY DEPTNO;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORFIRSTNAME LIKE 'I%' ORFIRSTNAME LIKE 'O%' ORFIRSTNAME LIKE 'U%' GROUP BY DEPTN' at line 1
+mysql> SELECT COUNT(*) FROM EMPLOYEES WHERE FIRSTNAME LIKE 'A%' OR FIRSTNAME LIKE 'E%' OR FIRSTNAME LIKE 'I%' OR FIRSTNAME LIKE 'O%' OR FIRSTNAME LIKE 'U%' GROUP BY DEPTNO;
+ERROR 1054 (42S22): Unknown column 'FIRSTNAME' in 'where clause'
+mysql> SELECT COUNT(*) FROM EMPLOYEES WHERE FIRST_NAME LIKE 'A%' OR FIRST_NAME LIKE 'E%' OR FIRST_NAME LIKE 'I%' OR FIRST_NAME LIKE 'O%' OR FIRST_NAME LIKE 'U%' GROUP BY DEPTNO;
++----------+
+| COUNT(*) |
++----------+
+|        2 |
+|        2 |
++----------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM EMPLOYEES where city like '%s';
+ERROR 1054 (42S22): Unknown column 'city' in 'where clause'
+mysql> SELECT * FROM offices where city like '%s';
++-----------+-----------------+-------------+-------+
+| office_id | address         | city        | state |
++-----------+-----------------+-------------+-------+
+|         5 | 553 Maple Drive | Minneapolis | MN    |
++-----------+-----------------+-------------+-------+
+1 row in set (0.00 sec)
+
+mysql> SELECT first_name FROM EMPLOYEEs where SALARY IN(SELECT MAX(SALARY) FROM EMPLOYEES) AND DEPTNO IN(SELECT DEPTNO FROM OFFICES WHERE CITY ='BOISE');
++------------+
+| first_name |
++------------+
+| Mirilla    |
++------------+
+1 row in set (0.08 sec)
+
+mysql> SELECT CITY FROM OFFICESs wherE DEPTNO IN(SELECT DEPTNO FROM EMPLOYEES WHERE SALARY IN (SELECT MAX(SALARY) FROM EMPLOYEES));
+ERROR 1146 (42S02): Table 'assignments.officess' doesn't exist
+mysql> SELECT CITY FROM OFFICES wherE DEPTNO IN(SELECT DEPTNO FROM EMPLOYEES WHERE SALARY IN (SELECT MAX(SALARY) FROM EMPLOYEES));
+ERROR 1054 (42S22): Unknown column 'DEPTNO' in 'IN/ALL/ANY subquery'
+mysql> SELECT CITY FROM OFFICES wherE DEPTNO IN ALL(SELECT DEPTNO FROM EMPLOYEES WHERE SALARY IN (SELECT MAX(SALARY) FROM EMPLOYEES));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ALL(SELECT DEPTNO FROM EMPLOYEES WHERE SALARY IN (SELECT MAX(SALARY) FROM EMPLOY' at line 1
+mysql> SELECT CITY FROM OFFICES wherE DEPTNO IN ALL(SELECT DEPTNO FROM EMPLOYEES WHERE SALARY IN (SELECT MAX(SALARY) FROM EMPLOYEES));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ALL(SELECT DEPTNO FROM EMPLOYEES WHERE SALARY IN (SELECT MAX(SALARY) FROM EMPLOY' at line 1
+mysql> SELECT CITY FROM OFFICES wherE DEPTNO IN (SELECT DEPTNO FROM EMPLOYEES WHERE SALARY IN (SELECT MAX(SALARY) FROM EMPLOYEES));
++----------+
+| CITY     |
++----------+
+| Richmond |
++----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT FIRST_NAME  FROM EMPLOYEES wherE DEPTNO IN (SELECT DEPTNO FROM OFFICES WHERE CITY LIKE '-O%');
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM EMPLOYEES wherE DEPTNO IN (SELECT DEPTNO FROM EMPLOYEES WHERE FIRSTNAME='SCOTT');
+ERROR 1054 (42S22): Unknown column 'FIRSTNAME' in 'where clause'
+mysql> SELECT * FROM EMPLOYEES wherE DEPTNO IN (SELECT DEPTNO FROM EMPLOYEES WHERE FIRST_NAME='SCOTT');
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM EMPLOYEES wherE DEPTNO IN (SELECT DEPTNO FROM OFFICESS WHERE CITY IN ('BOISE','NEW YORK CITY'));
+ERROR 1146 (42S02): Table 'assignments.officess' doesn't exist
+mysql> SELECT * FROM EMPLOYEES wherE DEPTNO IN (SELECT DEPTNO FROM OFFICES WHERE CITY IN ('BOISE','NEW YORK CITY'));
++-------+------------+-----------+-----------------------+--------+-------+--------+------------+
+| empid | first_name | last_name | job                   | salary | mgr   | deptno | hiredate   |
++-------+------------+-----------+-----------------------+--------+-------+--------+------------+
+| 63196 | Alaster    | Scutchin  | Assistant Professor   |  32179 | 37270 |      2 | 2019-01-30 |
+| 67009 | North      | de Clerc  | VP Product Management | 114257 | 37270 |      2 | 2019-01-30 |
+| 67370 | Elladine   | Rising    | Social Worker         |  96767 | 37270 |      2 | 2019-01-30 |
+| 68249 | Nisse      | Voysey    | Financial Advisor     |  52832 | 37270 |      2 | 2019-01-30 |
++-------+------------+-----------+-----------------------+--------+-------+--------+------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM EMPLOYEES wherE SALARY >(SELECT SALARY FROM EMPLOYEES WHERE FIRST_NAME = ('MILLER'));
+Empty set (0.02 sec)
+
+mysql> SELECT CITY FROM OFFICES wherE DEPTNO IN (SELECT DEPTNO FROM EMPLOYEES GROUP BY JOB HAVING COUNT(*)>=3);
+Empty set (0.00 sec)
+
+mysql> SELECT CITY FROM OFFICES wherE DEPTNO IN (SELECT DEPTNO FROM EMPLOYEES WHERE MGR=NULL);
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM EMPLOYEES wherE MGR IN (SELECT EMPID FROM EMPLOYEES WHERE MGR IN(SELECT EMPID FROM EMPLOYEES WHERE FIRST_NAME='JONES'));
+Empty set (0.00 sec)
+
+mysql>SELECT ENAME FROM EMP WHERE DEPTNO IN(SELECT DEPTNO FROM DEPT WHERE DNAME IN ('ACCOUNTING','RESEARCH') GROUP BY MGR HAVING COUNT(MGR)>=2;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> SELECT ENAME FROM EMP WHERE DEPTNO IN(SELECT DEPTNO FROM DEPT WHERE DNAME IN ('ACCOUNTING','RESEARCH')) GROUP BY MGR HAVING COUNT(MGR)>=2;
++-------+
+| ENAME |
++-------+
+| SCOTT |
+| CLARK |
++-------+
+2 rows in set (0.11 sec)
+
+mysql> SELECT DNAME FROM DEPT EHERE DEPTNO IN(SELECT DEPTNO FROM EMP WHERE ENAME NOT LIKE 'S%' AND SAL BETWEEN 1500 AND 3000;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DEPTNO IN(SELECT DEPTNO FROM EMP WHERE ENAME NOT LIKE 'S%' AND SAL BETWEEN 1500 ' at line 1
+mysql> SELECT DNAME FROM DEPT EHERE DEPTNO IN(SELECT DEPTNO FROM EMP WHERE ENAME NOT LIKE 'S%' AND SAL BETWEEN 1500 AND 3000);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DEPTNO IN(SELECT DEPTNO FROM EMP WHERE ENAME NOT LIKE 'S%' AND SAL BETWEEN 1500 ' at line 1
+mysql> SELECT DNAME FROM DEPT WHERE DEPTNO IN(SELECT DEPTNO FROM EMP WHERE ENAME NOT LIKE 'S%' AND SAL BETWEEN 1500 AND 3000);
++------------+
+| DNAME      |
++------------+
+| SALES      |
+| RESEARCH   |
+| ACCOUNTING |
++------------+
+3 rows in set (0.05 sec)
+
+mysql> SELECT LOC FROM DEPT WHERE DEPTNO IN(SELECT DEPTNO FROM EMP WHERE SAL IN(SELECT MIN(SAL) FROM EMP) AND SAL>2000);
+Empty set (0.02 sec)
+
+mysql> SELECT LOC FROM DEPT WHERE DNAME ='ACCOUNTING';
++----------+
+| LOC      |
++----------+
+| NEW YORK |
++----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT LOC FROM DEPT WHERE DEPTNO IN(SELECT DEPTNO FROM EMP GROUP BY DEPTNO HAVING COUNT(*)>=4);
++---------+
+| LOC     |
++---------+
+| DALLAS  |
+| CHICAGO |
++---------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM EMP WHERE JOB NOT IN (SELECT JOB FROM EMP WHERE ENAME IN 'ALLEN') AND SAL>(SELECT SAL FROM EMP WHERE ENAME IN 'MARTIN');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''ALLEN') AND SAL>(SELECT SAL FROM EMP WHERE ENAME IN 'MARTIN')' at line 1
+mysql> SELECT * FROM EMP WHERE JOB NOT IN (SELECT JOB FROM EMP WHERE ENAME ='ALLEN') AND SAL>(SELECT SAL FROM EMP WHERE ENAME='MARTIN');
++-------+--------+-----------+------+------------+------+------+--------+
+| empno | ename  | job       | mgr  | hiredate   | sal  | comm | deptno |
++-------+--------+-----------+------+------------+------+------+--------+
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975 | NULL |     20 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850 | NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450 | NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1987-04-19 | 3000 | NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000 | NULL |     10 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000 | NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300 | NULL |     10 |
++-------+--------+-----------+------+------------+------+------+--------+
+7 rows in set (0.02 sec)
+
+mysql> SELECT * FROM EMP WHERE DEPTNO IN(SELECT DEPTNO FROM DEPT WHERE LOC IN (SELECT ENAME FROM EMP WHERE EMPID IN(SELECT MGR FROM EMP WHERE ENAME ='ADAMS'));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> SELECT * FROM EMP WHERE JOB NOT IN (SELECT JOB FROM EMP WHERE ENAME ='ALLEN') AND SAL>(SELECT SAL FROM EMP WHERE ENAME='MARTIN');
++-------+--------+-----------+------+------------+------+------+--------+
+| empno | ename  | job       | mgr  | hiredate   | sal  | comm | deptno |
++-------+--------+-----------+------+------------+------+------+--------+
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975 | NULL |     20 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850 | NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450 | NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1987-04-19 | 3000 | NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000 | NULL |     10 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000 | NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300 | NULL |     10 |
++-------+--------+-----------+------+------------+------+------+--------+
+7 rows in set (0.02 sec)
+
+mysql> SELECT ENAME FROM EMP WHERE EMPID IN(SELECT MGR FROM EMP WHERE ENAME ='ADAMS');
+ERROR 1054 (42S22): Unknown column 'EMPID' in 'IN/ALL/ANY subquery'
+mysql> SELECT * FROM EMP WHERE DEPTNO IN(SELECT DEPTNO FROM DEPT WHERE LOC IN (SELECT ENAME FROM EMP WHERE EMPNO IN(SELECT MGR FROM EMP WHERE ENAME ='ADAMS'));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> SELECT ENAME FROM EMP WHERE EMPNO IN(SELECT MGR FROM EMP WHERE ENAME ='ADAMS');
++-------+
+| ENAME |
++-------+
+| SCOTT |
++-------+
+1 row in set (0.00 sec)
+
+mysql> SELECT JOB,MGR FROM EMP WHERE EMPNO IN(SELECT MGR FROM EMP WHERE ENAME='JONES');
++-----------+------+
+| JOB       | MGR  |
++-----------+------+
+| PRESIDENT | NULL |
++-----------+------+
+1 row in set (0.00 sec)

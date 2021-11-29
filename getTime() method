@@ -1,0 +1,3 @@
+The getTime() function is a part of Timestamp class of Java SQL.The function is used to get the time of the 
+Timestamp object. The function returns time in milliseconds which represents the time in milliseconds after 1st 
+January 1970.

@@ -1,0 +1,14 @@
+JDBC database connection using property resource(property file)
+Property file(database.properties) which holds database information like database URL,username and password.
+DBUtil.java class which is responsible to connect with MySQL database.
+
+Here You would have observed that how database.properties file is loaded using load method of java.util.
+Properties class.
+After that we get every property value from properties file by using getProperty(String key) method
+
+ClientTest.java client class which makes use of DBUtil to take connection from database(MySQL).
+
+When you run ClientTest .java in your favorite IDE then you will get below out.
+
+JDBC:connection is taken..
+That’s all about  this topic JDBC database connection using property resource(property file)

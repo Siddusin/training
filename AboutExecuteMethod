@@ -1,0 +1,10 @@
+The execute( ) method is the most generic method you can use to execute a SQL statement in JDBC. To execute a 
+SQL statement with the execute method, call it by passing it a valid SQL statement as a String object, or as a 
+string literal
+ we assume that Connection object conn already exists. First, a boolean variable named isResultSet is created to 
+ hold the return value from the call to the execute( ) method. Next, a variable named stmt is created to hold a 
+ reference to the Statement object. In the try block, the Statement object is created with a call to the 
+ Connection object’s createStatement( ) method. Then, the Statement object’s execute( ) method is called passing 
+ a SQL SELECT statement. Since this is a SELECT statement, the execute( ) method returns a boolean true to 
+ indicate that a result set is available. You can then call the Statement object’s getResultSet( ) method to 
+ retrieve the ResultSet object that contains the data from the database.

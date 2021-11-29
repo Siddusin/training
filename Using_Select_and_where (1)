@@ -1,0 +1,599 @@
+mysql> use sql_hr;
+Database changed
+mysql> select * from employees;
++-------------+------------+------------+-----------------------------+--------+------------+-----------+
+| employee_id | first_name | last_name  | job_title                   | salary | reports_to | office_id |
++-------------+------------+------------+-----------------------------+--------+------------+-----------+
+|       33391 | D'arcy     | Nortunen   | Account Executive           |  62871 |      37270 |         1 |
+|       37270 | Yovonnda   | Magrannell | Executive Secretary         |  63996 |       NULL |        10 |
+|       37851 | Sayer      | Matterson  | Statistician III            |  98926 |      37270 |         1 |
+|       40448 | Mindy      | Crissil    | Staff Scientist             |  94860 |      37270 |         1 |
+|       56274 | Keriann    | Alloisi    | VP Marketing                | 110150 |      37270 |         1 |
+|       63196 | Alaster    | Scutchin   | Assistant Professor         |  32179 |      37270 |         2 |
+|       67009 | North      | de Clerc   | VP Product Management       | 114257 |      37270 |         2 |
+|       67370 | Elladine   | Rising     | Social Worker               |  96767 |      37270 |         2 |
+|       68249 | Nisse      | Voysey     | Financial Advisor           |  52832 |      37270 |         2 |
+|       72540 | Guthrey    | Iacopetti  | Office Assistant I          | 117690 |      37270 |         3 |
+|       72913 | Kass       | Hefferan   | Computer Systems Analyst IV |  96401 |      37270 |         3 |
+|       75900 | Virge      | Goodrum    | Information Systems Manager |  54578 |      37270 |         3 |
+|       76196 | Mirilla    | Janowski   | Cost Accountant             | 119241 |      37270 |         3 |
+|       80529 | Lynde      | Aronson    | Junior Executive            |  77182 |      37270 |         4 |
+|       80679 | Mildrid    | Sokale     | Geologist II                |  67987 |      37270 |         4 |
+|       84791 | Hazel      | Tarbert    | General Manager             |  93760 |      37270 |         4 |
+|       95213 | Cole       | Kesterton  | Pharmacist                  |  86119 |      37270 |         4 |
+|       96513 | Theresa    | Binney     | Food Chemist                |  47354 |      37270 |         5 |
+|       98374 | Estrellita | Daleman    | Staff Accountant IV         |  70187 |      37270 |         5 |
+|      115357 | Ivy        | Fearey     | Structural Engineer         |  92710 |      37270 |         5 |
++-------------+------------+------------+-----------------------------+--------+------------+-----------+
+20 rows in set (0.00 sec)
+
+mysql> select first_name,salary from employees;
++------------+--------+
+| first_name | salary |
++------------+--------+
+| D'arcy     |  62871 |
+| Yovonnda   |  63996 |
+| Sayer      |  98926 |
+| Mindy      |  94860 |
+| Keriann    | 110150 |
+| Alaster    |  32179 |
+| North      | 114257 |
+| Elladine   |  96767 |
+| Nisse      |  52832 |
+| Guthrey    | 117690 |
+| Kass       |  96401 |
+| Virge      |  54578 |
+| Mirilla    | 119241 |
+| Lynde      |  77182 |
+| Mildrid    |  67987 |
+| Hazel      |  93760 |
+| Cole       |  86119 |
+| Theresa    |  47354 |
+| Estrellita |  70187 |
+| Ivy        |  92710 |
++------------+--------+
+20 rows in set (0.00 sec)
+
+mysql> select first_name,office_id from employees;
++------------+-----------+
+| first_name | office_id |
++------------+-----------+
+| D'arcy     |         1 |
+| Yovonnda   |        10 |
+| Sayer      |         1 |
+| Mindy      |         1 |
+| Keriann    |         1 |
+| Alaster    |         2 |
+| North      |         2 |
+| Elladine   |         2 |
+| Nisse      |         2 |
+| Guthrey    |         3 |
+| Kass       |         3 |
+| Virge      |         3 |
+| Mirilla    |         3 |
+| Lynde      |         4 |
+| Mildrid    |         4 |
+| Hazel      |         4 |
+| Cole       |         4 |
+| Theresa    |         5 |
+| Estrellita |         5 |
+| Ivy        |         5 |
++------------+-----------+
+20 rows in set (0.00 sec)
+
+mysql> select first_name,job_tittle from employees;
+ERROR 1054 (42S22): Unknown column 'job_tittle' in 'field list'
+mysql> select first_name,job_title from employees;
++------------+-----------------------------+
+| first_name | job_title                   |
++------------+-----------------------------+
+| D'arcy     | Account Executive           |
+| Yovonnda   | Executive Secretary         |
+| Sayer      | Statistician III            |
+| Mindy      | Staff Scientist             |
+| Keriann    | VP Marketing                |
+| Alaster    | Assistant Professor         |
+| North      | VP Product Management       |
+| Elladine   | Social Worker               |
+| Nisse      | Financial Advisor           |
+| Guthrey    | Office Assistant I          |
+| Kass       | Computer Systems Analyst IV |
+| Virge      | Information Systems Manager |
+| Mirilla    | Cost Accountant             |
+| Lynde      | Junior Executive            |
+| Mildrid    | Geologist II                |
+| Hazel      | General Manager             |
+| Cole       | Pharmacist                  |
+| Theresa    | Food Chemist                |
+| Estrellita | Staff Accountant IV         |
+| Ivy        | Structural Engineer         |
++------------+-----------------------------+
+20 rows in set (0.00 sec)
+
+mysql> select first_name,employee_id from employees;
++------------+-------------+
+| first_name | employee_id |
++------------+-------------+
+| D'arcy     |       33391 |
+| Yovonnda   |       37270 |
+| Sayer      |       37851 |
+| Mindy      |       40448 |
+| Keriann    |       56274 |
+| Alaster    |       63196 |
+| North      |       67009 |
+| Elladine   |       67370 |
+| Nisse      |       68249 |
+| Guthrey    |       72540 |
+| Kass       |       72913 |
+| Virge      |       75900 |
+| Mirilla    |       76196 |
+| Lynde      |       80529 |
+| Mildrid    |       80679 |
+| Hazel      |       84791 |
+| Cole       |       95213 |
+| Theresa    |       96513 |
+| Estrellita |       98374 |
+| Ivy        |      115357 |
++------------+-------------+
+20 rows in set (0.00 sec)
+
+mysql> select job_title from employees group by job_title;
++-----------------------------+
+| job_title                   |
++-----------------------------+
+| Account Executive           |
+| Assistant Professor         |
+| Computer Systems Analyst IV |
+| Cost Accountant             |
+| Executive Secretary         |
+| Financial Advisor           |
+| Food Chemist                |
+| General Manager             |
+| Geologist II                |
+| Information Systems Manager |
+| Junior Executive            |
+| Office Assistant I          |
+| Pharmacist                  |
+| Social Worker               |
+| Staff Accountant IV         |
+| Staff Scientist             |
+| Statistician III            |
+| Structural Engineer         |
+| VP Marketing                |
+| VP Product Management       |
++-----------------------------+
+20 rows in set (0.00 sec)
+
+mysql> select sum(salary) from employees;
++-------------+
+| sum(salary) |
++-------------+
+|     1650047 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select first_name,salary*12 annual_salary from employees;
++------------+---------------+
+| first_name | annual_salary |
++------------+---------------+
+| D'arcy     |        754452 |
+| Yovonnda   |        767952 |
+| Sayer      |       1187112 |
+| Mindy      |       1138320 |
+| Keriann    |       1321800 |
+| Alaster    |        386148 |
+| North      |       1371084 |
+| Elladine   |       1161204 |
+| Nisse      |        633984 |
+| Guthrey    |       1412280 |
+| Kass       |       1156812 |
+| Virge      |        654936 |
+| Mirilla    |       1430892 |
+| Lynde      |        926184 |
+| Mildrid    |        815844 |
+| Hazel      |       1125120 |
+| Cole       |       1033428 |
+| Theresa    |        568248 |
+| Estrellita |        842244 |
+| Ivy        |       1112520 |
++------------+---------------+
+20 rows in set (0.05 sec)
+
+mysql> select first_name,salary*12 annual_salary,salary*6 midterm_salary from employees;
++------------+---------------+----------------+
+| first_name | annual_salary | midterm_salary |
++------------+---------------+----------------+
+| D'arcy     |        754452 |         377226 |
+| Yovonnda   |        767952 |         383976 |
+| Sayer      |       1187112 |         593556 |
+| Mindy      |       1138320 |         569160 |
+| Keriann    |       1321800 |         660900 |
+| Alaster    |        386148 |         193074 |
+| North      |       1371084 |         685542 |
+| Elladine   |       1161204 |         580602 |
+| Nisse      |        633984 |         316992 |
+| Guthrey    |       1412280 |         706140 |
+| Kass       |       1156812 |         578406 |
+| Virge      |        654936 |         327468 |
+| Mirilla    |       1430892 |         715446 |
+| Lynde      |        926184 |         463092 |
+| Mildrid    |        815844 |         407922 |
+| Hazel      |       1125120 |         562560 |
+| Cole       |       1033428 |         516714 |
+| Theresa    |        568248 |         284124 |
+| Estrellita |        842244 |         421122 |
+| Ivy        |       1112520 |         556260 |
++------------+---------------+----------------+
+20 rows in set (0.00 sec)
+
+mysql> select first_name,salary+salary*.15 salary_with_15%_hike from employees;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%_hike from employees' at line 1
+mysql> select first_name, salary=salary+salary*.15 salary_with_15%_hike from employees;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%_hike from employees' at line 1
+mysql> select first_name, salary=salary+salary*.15 salary_withhike from employees;
++------------+-----------------+
+| first_name | salary_withhike |
++------------+-----------------+
+| D'arcy     |               0 |
+| Yovonnda   |               0 |
+| Sayer      |               0 |
+| Mindy      |               0 |
+| Keriann    |               0 |
+| Alaster    |               0 |
+| North      |               0 |
+| Elladine   |               0 |
+| Nisse      |               0 |
+| Guthrey    |               0 |
+| Kass       |               0 |
+| Virge      |               0 |
+| Mirilla    |               0 |
+| Lynde      |               0 |
+| Mildrid    |               0 |
+| Hazel      |               0 |
+| Cole       |               0 |
+| Theresa    |               0 |
+| Estrellita |               0 |
+| Ivy        |               0 |
++------------+-----------------+
+20 rows in set (0.06 sec)
+
+mysql> select first_name, new=salary+salary*.15 salary_withhike from employees;
+ERROR 1054 (42S22): Unknown column 'new' in 'field list'
+mysql> select first_name, salary+salary*.15 salary_withhike from employees;
++------------+-----------------+
+| first_name | salary_withhike |
++------------+-----------------+
+| D'arcy     |        72301.65 |
+| Yovonnda   |        73595.40 |
+| Sayer      |       113764.90 |
+| Mindy      |       109089.00 |
+| Keriann    |       126672.50 |
+| Alaster    |        37005.85 |
+| North      |       131395.55 |
+| Elladine   |       111282.05 |
+| Nisse      |        60756.80 |
+| Guthrey    |       135343.50 |
+| Kass       |       110861.15 |
+| Virge      |        62764.70 |
+| Mirilla    |       137127.15 |
+| Lynde      |        88759.30 |
+| Mildrid    |        78185.05 |
+| Hazel      |       107824.00 |
+| Cole       |        99036.85 |
+| Theresa    |        54457.10 |
+| Estrellita |        80715.05 |
+| Ivy        |       106616.50 |
++------------+-----------------+
+20 rows in set (0.00 sec)
+
+mysql> select first_name, salary-salary*.19 salary_withhike from employees;
++------------+-----------------+
+| first_name | salary_withhike |
++------------+-----------------+
+| D'arcy     |        50925.51 |
+| Yovonnda   |        51836.76 |
+| Sayer      |        80130.06 |
+| Mindy      |        76836.60 |
+| Keriann    |        89221.50 |
+| Alaster    |        26064.99 |
+| North      |        92548.17 |
+| Elladine   |        78381.27 |
+| Nisse      |        42793.92 |
+| Guthrey    |        95328.90 |
+| Kass       |        78084.81 |
+| Virge      |        44208.18 |
+| Mirilla    |        96585.21 |
+| Lynde      |        62517.42 |
+| Mildrid    |        55069.47 |
+| Hazel      |        75945.60 |
+| Cole       |        69756.39 |
+| Theresa    |        38356.74 |
+| Estrellita |        56851.47 |
+| Ivy        |        75095.10 |
++------------+-----------------+
+20 rows in set (0.05 sec)
+
+mysql> select first_name, salary+500 salary_inctriment from employees;
++------------+-------------------+
+| first_name | salary_inctriment |
++------------+-------------------+
+| D'arcy     |             63371 |
+| Yovonnda   |             64496 |
+| Sayer      |             99426 |
+| Mindy      |             95360 |
+| Keriann    |            110650 |
+| Alaster    |             32679 |
+| North      |            114757 |
+| Elladine   |             97267 |
+| Nisse      |             53332 |
+| Guthrey    |            118190 |
+| Kass       |             96901 |
+| Virge      |             55078 |
+| Mirilla    |            119741 |
+| Lynde      |             77682 |
+| Mildrid    |             68487 |
+| Hazel      |             94260 |
+| Cole       |             86619 |
+| Theresa    |             47854 |
+| Estrellita |             70687 |
+| Ivy        |             93210 |
++------------+-------------------+
+20 rows in set (0.00 sec)
+
+mysql> select *,salary*12 annual_salary,salary*6 midterm_salary from employees;
++-------------+------------+------------+-----------------------------+--------+------------+-----------+---------------+----------------+
+| employee_id | first_name | last_name  | job_title                   | salary | reports_to | office_id | annual_salary | midterm_salary |
++-------------+------------+------------+-----------------------------+--------+------------+-----------+---------------+----------------+
+|       33391 | D'arcy     | Nortunen   | Account Executive           |  62871 |      37270 |         1 |        754452 |         377226 |
+|       37270 | Yovonnda   | Magrannell | Executive Secretary         |  63996 |       NULL |        10 |        767952 |         383976 |
+|       37851 | Sayer      | Matterson  | Statistician III            |  98926 |      37270 |         1 |       1187112 |         593556 |
+|       40448 | Mindy      | Crissil    | Staff Scientist             |  94860 |      37270 |         1 |       1138320 |         569160 |
+|       56274 | Keriann    | Alloisi    | VP Marketing                | 110150 |      37270 |         1 |       1321800 |         660900 |
+|       63196 | Alaster    | Scutchin   | Assistant Professor         |  32179 |      37270 |         2 |        386148 |         193074 |
+|       67009 | North      | de Clerc   | VP Product Management       | 114257 |      37270 |         2 |       1371084 |         685542 |
+|       67370 | Elladine   | Rising     | Social Worker               |  96767 |      37270 |         2 |       1161204 |         580602 |
+|       68249 | Nisse      | Voysey     | Financial Advisor           |  52832 |      37270 |         2 |        633984 |         316992 |
+|       72540 | Guthrey    | Iacopetti  | Office Assistant I          | 117690 |      37270 |         3 |       1412280 |         706140 |
+|       72913 | Kass       | Hefferan   | Computer Systems Analyst IV |  96401 |      37270 |         3 |       1156812 |         578406 |
+|       75900 | Virge      | Goodrum    | Information Systems Manager |  54578 |      37270 |         3 |        654936 |         327468 |
+|       76196 | Mirilla    | Janowski   | Cost Accountant             | 119241 |      37270 |         3 |       1430892 |         715446 |
+|       80529 | Lynde      | Aronson    | Junior Executive            |  77182 |      37270 |         4 |        926184 |         463092 |
+|       80679 | Mildrid    | Sokale     | Geologist II                |  67987 |      37270 |         4 |        815844 |         407922 |
+|       84791 | Hazel      | Tarbert    | General Manager             |  93760 |      37270 |         4 |       1125120 |         562560 |
+|       95213 | Cole       | Kesterton  | Pharmacist                  |  86119 |      37270 |         4 |       1033428 |         516714 |
+|       96513 | Theresa    | Binney     | Food Chemist                |  47354 |      37270 |         5 |        568248 |         284124 |
+|       98374 | Estrellita | Daleman    | Staff Accountant IV         |  70187 |      37270 |         5 |        842244 |         421122 |
+|      115357 | Ivy        | Fearey     | Structural Engineer         |  92710 |      37270 |         5 |       1112520 |         556260 |
++-------------+------------+------------+-----------------------------+--------+------------+-----------+---------------+----------------+
+20 rows in set (0.00 sec)
+
+mysql> select distinct salary from employees;
++--------+
+| salary |
++--------+
+|  62871 |
+|  63996 |
+|  98926 |
+|  94860 |
+| 110150 |
+|  32179 |
+| 114257 |
+|  96767 |
+|  52832 |
+| 117690 |
+|  96401 |
+|  54578 |
+| 119241 |
+|  77182 |
+|  67987 |
+|  93760 |
+|  86119 |
+|  47354 |
+|  70187 |
+|  92710 |
++--------+
+20 rows in set (0.00 sec)
+
+mysql> select distinct office_id from employees;
++-----------+
+| office_id |
++-----------+
+|         1 |
+|         2 |
+|         3 |
+|         4 |
+|         5 |
+|        10 |
++-----------+
+6 rows in set (0.10 sec)
+
+mysql> select distinct repostd_to from employees;
+ERROR 1054 (42S22): Unknown column 'repostd_to' in 'field list'
+mysql> select distinct reposts_to from employees;
+ERROR 1054 (42S22): Unknown column 'reposts_to' in 'field list'
+mysql> select distinct reports_to from employees;
++------------+
+| reports_to |
++------------+
+|       NULL |
+|      37270 |
++------------+
+2 rows in set (0.05 sec)
+
+mysql> select first_name from employees where office_id=2;
++------------+
+| first_name |
++------------+
+| Alaster    |
+| North      |
+| Elladine   |
+| Nisse      |
++------------+
+4 rows in set (0.00 sec)
+
+mysql> select first_name salary from employees where salary>1200;
++------------+
+| salary     |
++------------+
+| D'arcy     |
+| Yovonnda   |
+| Sayer      |
+| Mindy      |
+| Keriann    |
+| Alaster    |
+| North      |
+| Elladine   |
+| Nisse      |
+| Guthrey    |
+| Kass       |
+| Virge      |
+| Mirilla    |
+| Lynde      |
+| Mildrid    |
+| Hazel      |
+| Cole       |
+| Theresa    |
+| Estrellita |
+| Ivy        |
++------------+
+20 rows in set (0.04 sec)
+
+mysql> select first_name, salary from employees where salary>1200;
++------------+--------+
+| first_name | salary |
++------------+--------+
+| D'arcy     |  62871 |
+| Yovonnda   |  63996 |
+| Sayer      |  98926 |
+| Mindy      |  94860 |
+| Keriann    | 110150 |
+| Alaster    |  32179 |
+| North      | 114257 |
+| Elladine   |  96767 |
+| Nisse      |  52832 |
+| Guthrey    | 117690 |
+| Kass       |  96401 |
+| Virge      |  54578 |
+| Mirilla    | 119241 |
+| Lynde      |  77182 |
+| Mildrid    |  67987 |
+| Hazel      |  93760 |
+| Cole       |  86119 |
+| Theresa    |  47354 |
+| Estrellita |  70187 |
+| Ivy        |  92710 |
++------------+--------+
+20 rows in set (0.00 sec)
+
+mysql> select first_name from employees where reports_id= 37270;
+ERROR 1054 (42S22): Unknown column 'reports_id' in 'where clause'
+mysql> select first_name from employees where reports_to= 37270;
++------------+
+| first_name |
++------------+
+| D'arcy     |
+| Sayer      |
+| Mindy      |
+| Keriann    |
+| Alaster    |
+| North      |
+| Elladine   |
+| Nisse      |
+| Guthrey    |
+| Kass       |
+| Virge      |
+| Mirilla    |
+| Lynde      |
+| Mildrid    |
+| Hazel      |
+| Cole       |
+| Theresa    |
+| Estrellita |
+| Ivy        |
++------------+
+19 rows in set (0.00 sec)
+
+mysql> select first_naik,salary*12 annual_salary from employees where office_id=2;
+ERROR 1054 (42S22): Unknown column 'first_naik' in 'field list'
+mysql> select first_name,salary*12 annual_salary from employees where office_id=2;
++------------+---------------+
+| first_name | annual_salary |
++------------+---------------+
+| Alaster    |        386148 |
+| North      |       1371084 |
+| Elladine   |       1161204 |
+| Nisse      |        633984 |
++------------+---------------+
+4 rows in set (0.00 sec)
+
+mysql> select first_naik,salary from employees where salary<3000;
+ERROR 1054 (42S22): Unknown column 'first_naik' in 'field list'
+mysql> select first_name,salary from employees where salary<3000;
+Empty set (0.00 sec)
+
+mysql> select first_name,repotrs_to,office_id from employees where office_id=2;
+ERROR 1054 (42S22): Unknown column 'repotrs_to' in 'field list'
+mysql> select first_name,reports_to,office_id from employees where office_id=2;
++------------+------------+-----------+
+| first_name | reports_to | office_id |
++------------+------------+-----------+
+| Alaster    |      37270 |         2 |
+| North      |      37270 |         2 |
+| Elladine   |      37270 |         2 |
+| Nisse      |      37270 |         2 |
++------------+------------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> select sum(salary) from employees group by salary;
++-------------+
+| sum(salary) |
++-------------+
+|       32179 |
+|       47354 |
+|       52832 |
+|       54578 |
+|       62871 |
+|       63996 |
+|       67987 |
+|       70187 |
+|       77182 |
+|       86119 |
+|       92710 |
+|       93760 |
+|       94860 |
+|       96401 |
+|       96767 |
+|       98926 |
+|      110150 |
+|      114257 |
+|      117690 |
+|      119241 |
++-------------+
+20 rows in set (0.00 sec)
+
+mysql> select job_title, sum(salary) from employees group by salary;
++-----------------------------+-------------+
+| job_title                   | sum(salary) |
++-----------------------------+-------------+
+| Assistant Professor         |       32179 |
+| Food Chemist                |       47354 |
+| Financial Advisor           |       52832 |
+| Information Systems Manager |       54578 |
+| Account Executive           |       62871 |
+| Executive Secretary         |       63996 |
+| Geologist II                |       67987 |
+| Staff Accountant IV         |       70187 |
+| Junior Executive            |       77182 |
+| Pharmacist                  |       86119 |
+| Structural Engineer         |       92710 |
+| General Manager             |       93760 |
+| Staff Scientist             |       94860 |
+| Computer Systems Analyst IV |       96401 |
+| Social Worker               |       96767 |
+| Statistician III            |       98926 |
+| VP Marketing                |      110150 |
+| VP Product Management       |      114257 |
+| Office Assistant I          |      117690 |
+| Cost Accountant             |      119241 |
++-----------------------------+-------------+
+20 rows in set (0.00 sec)s
