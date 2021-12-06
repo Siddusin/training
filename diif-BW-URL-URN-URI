@@ -1,0 +1,38 @@
+1.URI (uniform resource identifier) identifies a resource (text document, image file, etc)
+
+Contains information about how to fetch a resource from its location. For example:
+
+http://example.com/mypage.html
+ftp://example.com/download.zip
+mailto:user@example.com
+file:///home/user/file.txt
+http://example.com/resource?foo=bar#fragment
+/other/link.html (A relative URL, only useful in the context of another URL)
+URLs always start with a protocol (http) and usually contain information such as the network host name (example.com) 
+and often a document path (/foo/mypage.html). URLs may have query parameters and fragment identifiers.
+
+
+2.URL (uniform resource locator) is a subset of the URIs that include a network location
+
+Identifies a resource by name. It always starts with the prefix urn: For example:
+
+urn:isbn:0451450523 to identify a book by its ISBN number.
+urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66 a globally unique identifier
+urn:publishing:book - An XML namespace that identifies the document as a type of book.
+URNs can identify ideas and concepts. They are not restricted to identifying documents. When a URN does represent a document, 
+it can be translated into a URL by a "resolver". The document can then be downloaded from the URL.
+
+
+3.URN (uniform resource name) is a subset of URIs that include a name within a given space, but no location
+
+URIs encompasses both URLs, URNs, and other ways to indicate a resource.
+
+An example of a URI that is neither a URL nor a URN would be a data URI such as data:,Hello%20World. It is not a URL or URN because the
+URI contains the data. It neither names it, nor tells you how to locate it over the network.
+
+There are also uniform resource citations (URCs) that point to meta data about a document rather than to the document itself. An example of 
+a URC would be an indicator for viewing the source code of a web page: view-source:http://example.com/. A URC is another type of URI that is 
+neither URL nor URN.
+
+
+	

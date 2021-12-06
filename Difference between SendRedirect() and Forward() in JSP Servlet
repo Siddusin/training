@@ -1,0 +1,17 @@
+SendRedirect ():  
+
+This method is declared in HttpServletResponse Interface.
+
+Signature: void sendRedirect(String url)
+
+difference between sendRedirect and forward in jsp servletThis method is used to redirect the client requests to some other location for 
+further processing, the new location is available on different servers or different contexts. 
+
+Our web container handles this and transfers the request using a browser, and this request is visible in the browser as a new request. 
+Sometimes this is also called a client-side redirect.
+
+
+Forward():
+This method is declared in RequestDispatcher Interface.
+Signature: forward(ServletRequest request, ServletResponse response)
+This method is used to pass the request to another resource for further processing within the same server

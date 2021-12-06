@@ -1,0 +1,22 @@
+What Are HTTP Request Methods?
+An HTTP request is an action to be performed on a resource identified by a given Request-URL. Request methods are case-sensitive, always noted 
+in upper case.
+
+How Do HTTP Requests Work?
+HTTP requests work as the intermediary transportation method between a client/application and a server. The client submits an HTTP request to 
+the server, and after processing, the server sends back a response. The response contains status information about the request.
+
+
+There are various HTTP request methods, but each one is assigned a specific purpose. Let's start -
+1. GET Method -
+GET method is used to retrieve and request data from a specified resource in a server.
+A GET request is often used to typically fetch json data from the server, there are different formats by which you can retrieve the data -
+
+XML
+HTML
+Text
+JSON
+
+2. POST method -
+Another popular HTTP request method is POST. In web communication, POST requests are utilized to send data to a server to create or update a 
+resource. The HTTP POST method is often used to send user-generated data to a server. One example is when a user uploads a profile photo.

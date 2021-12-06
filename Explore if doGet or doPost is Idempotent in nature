@@ -1,0 +1,5 @@
+Explore if doGet or doPost is Idempotent in nature
+doGet Method is Idempotent in nature
+A request method is considered "idempotent" if the intended effect on the server of multiple identical requests with that method is the same 
+as the effect for a single such request. Of the request methods defined by this specification, PUT, DELETE, and safe request methods are 
+idempotent. 

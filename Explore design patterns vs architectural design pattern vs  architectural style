@@ -1,0 +1,25 @@
+Architectural Style
+The architectural style shows how do we organize our code, or how the system will look like from 10000 feet helicopter view to show the highest 
+level of abstraction of our system design. Furthermore, when building the architectural style of our system we focus on layers and modules and 
+how they are communicating with each other.
+
+
+There are different types of architectural styles, and moreover, we can mix them and produce a hybrid style that consists of a mix between two 
+and even more architectural styles. 
+
+Architectural Patterns
+The architectural pattern shows how a solution can be used to solve a reoccurring problem. In another word, it reflects how a code or components 
+interact with each other. Moreover, the architectural pattern is describing the architectural style of our system and provides solutions for the 
+issues in our architectural style. Personally, I prefer to define architectural patterns as a way to implement our architectural style. For 
+example: how to separate the UI of the data module in our architectural style? How to integrate a third-party component with our system? how 
+many tires will we have in our client-server architecture? Examples of architectural patterns are microservices, message bus, service requester/
+consumer, MVC, MVVM, microkernel, n-tier, domain-driven design, and presentation-abstraction-control.
+
+Design Patterns
+Design patterns are accumulative best practices and experiences that software professionals used over the years to solve the general problem by 
+– trial and error – they faced during software development. The Gang of Four (GOF, refers to Eric Gamma, Richard Helm, Ralf Johnson, and John 
+Vlissides) wrote a book in 1994 titled with “Design Pattern – Elements of reusable object-oriented software” in which they suggested that design
+patterns are based on two main principles of object-oriented design:
+
+Develop to an interface, not to an implementation.
+Favor object composition over inheritance

@@ -1,0 +1,3 @@
+Port 8080 may be either http or https depending on how the server is configured, however it is more commonly setup as http. By default, 
+HTTP uses port 80 and HTTPS uses port 443, but a URL like http://www.example.com:8080/path/ specifies that the web browser connects instead to
+port 8080 of the HTTP server.

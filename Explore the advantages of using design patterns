@@ -1,0 +1,3 @@
+What are the benefits of using software design patterns?
+Design patterns help promote easier program changes and object reusability. Loosely coupled objects are easier to reuse and change. Keeping 
+objects small and specialized promotes loose coupling. Design patterns are built with many small specialized objects.

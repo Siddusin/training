@@ -1,0 +1,30 @@
+Observer
+The Observer patterns is about notifications between objects.
+
+Consider an object A that can undergo events, in the general sense of “events”. That can be GUI events, or changes of state, or anything that 
+could be of interest for another object B. A is called Subject and B is called Observer:
+
+Design principle
+To which GRASP principle does the Observer design pattern relate most?
+
+In my opinion, the central aspect of the Observer design pattern is the dedicated Observer interface, that allows for the Subject not to know 
+the nature of its observer(s).
+
+This interface creates a layer around the Observer objects, allowing them to change without affecting the Subject. This helps creating Low 
+Coupling, in a way that looks like Protected Variations.
+
+Even though we implemented the Observer design pattern by using polymorphism, it seems like an implementation detail to me rather than the 
+essence of the Observer design pattern.
+
+State
+The State design pattern is useful when an object can be in several formalized states. The GoF book takes the example of a TCP connection 
+that can be Established, Listening or Closed.
+
+Design principle
+Now to which of the 9 GRASP design principles does the State design pattern relate most?
+
+The purpose of State is to avoid having the same code deal with the various states implementations and transitions. Instead, it introduces 
+classes that are focused on a single purpose: handling one particular state.
+
+Strategy
+The Strategy design pattern consists in letting a calling code use one of several possible algorithms, by hiding them behind an interface.

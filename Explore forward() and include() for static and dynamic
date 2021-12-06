@@ -1,0 +1,14 @@
+Static include
+
+This is a process to include the content of a file into a jsp. The include file can be a jsp, html or txt file. This inclusion happens during 
+the conversion of jsp into the servlet. This is required to avoid duplicate code in multiple jsp. If a common task is required to be performed 
+by a set of jsp files then that code can be written in a file and that file can be included in the required jsp. This can be done by using name 
+of the include file into the file attribute of include directive. This directive can be used in any place and any number of times in a jsp.
+
+Forwarding request
+
+Using <jsp:forward>
+
+This tag transfers request available to a jsp to another page or a jsp. The second page can use the request available to the first jsp. It also 
+transfers the execution control to the second page. The execution control never comes back to the first jsp. Hence, the code present after this 
+tag cannot execute.
